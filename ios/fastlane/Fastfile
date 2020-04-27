@@ -1,0 +1,61 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  lane :fir do
+    desc "发布 测试版本 到 fir"
+
+    increment_build_number()
+
+    update_project_team(
+      path: ENV['xcodeproj'],
+      teamid: ENV['team_id']
+    )
+
+    settings_to_override = {
+      :BUNDLE_IDENTIFIER => ENV['app_identifier'],
+      :PROVISIONING_PROFILE_SPECIFIER => "match AdHoc "+ENV['app_identifier'],
+      :DEVELOPMENT_TEAM => ENV['team_id']
+    }
+
+    # 打包
+    gym(
+        scheme: ENV['scheme'],
+        output_name: "#{ENV['app_name']}.ipa",
+        configuration: "Release",
+        # clean: true,
+        # codesigning_identity: "iPhone Distribution",
+        xcargs: settings_to_override,
+        export_method:"ad-hoc",
+        output_directory: ENV['fir_output_path'],
+        export_options: {
+          # signingStyle: "manual",
+          provisioningProfiles: {
+            ENV['app_identifier'] => "match AdHoc "+ENV['app_identifier'],
+          }
+        },
+    );
+
+    fir_cli(api_token: "8c814c3f18e934e89036e93e19eaf1e0",  changelog: ENV['changelog'], dingtalk_access_token: "此处替换你的dingtalk_access_token",dingtalk_custom_message: "release iOS")
+    notification(subtitle: "上传完成", message: "最新测试包已经上传至蒲公英平台")
+  
+    # reset_git_repo
+    # sh "git reset --hard"
+  end
+
+end

@@ -1,0 +1,48 @@
+platform :android do
+
+  desc 'Build the Android application.'
+  private_lane :build do
+    android_change_string_app_name(newName: ENV["app_name"])
+    android_change_package_identifier(newIdentifier: ENV['app_id'])
+    # gradle(task:"clean");
+      gradle(
+        task:"assemble",
+        build_type: "Release",
+        # print_command: false,
+        # properties: {
+          # "applicationId" => ENV['application_id'],
+          # "versionCode" => ENV['version_code'],
+          # "versionName" => ENV['version_name'],
+          # "android.injected.signing.store.file" => "keystore.jks",
+          # "android.injected.signing.store.password" => ENV["store_password"],
+          # "android.injected.signing.key.alias" => ENV["key_alias"],
+          # "android.injected.signing.key.password" => ENV["key_password"],
+        # }
+      )
+    puts("------打包后App信息：------")
+    app_info;
+  end
+
+
+  lane :generate_icon do
+    android_appicon(
+      appicon_image_file: '../scripts/res/1024.png',
+      appicon_icon_types: [:launcher],
+      appicon_path: 'app/src/main/res/mipmap'
+    )
+    android_appicon(
+      appicon_image_file: '../scripts/res/1024.png',
+      appicon_icon_types: [:notification],
+      appicon_path: 'app/src/main/res/drawable',
+      appicon_filename: 'ic_notification'
+    )
+  end
+
+  desc 'Ship to 蒲公英 beta.'
+  lane :beta do
+    generate_icon
+    build
+    fir_cli(api_token: "8c814c3f18e934e89036e93e19eaf1e0",  changelog: "", dingtalk_access_token: "93b2d44587255eb753c84903b37ea48bf670d2deacc3f980775b81ef89a78447",dingtalk_custom_message: "release android")
+    # sh "git reset --hard"
+  end
+end

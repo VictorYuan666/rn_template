@@ -1,0 +1,152 @@
+# The Deliverfile allows you to store various App Store Connect metadata
+# For more information, check out the docs
+# https://docs.fastlane.tools/actions/deliver/
+
+############################# 基本信息 ####################################
+
+
+# 1 bundle identifier
+app_identifier ENV['app_identifier']
+
+# 2 用户名,Apple ID电子邮件地址
+username ENV['app_id']
+
+# # 3 版权声明
+# copyright ENV['copyright']
+
+# # 4 支持的语言
+# supportedLanguages = {
+#     "cmn-Hans" => "zh-Hans"
+# }
+
+# # 5 App应用名称
+# name(
+#   'zh-Hans' => "xxx"
+# )
+
+# # 6 副标题
+# subtitle(
+#   'zh-Hans' => "xxx"
+# )
+
+# # 应用说明
+# description({
+#   'zh-Hans' => "
+#   xxx
+#   "
+# })
+
+# ###################################  类别配置 ###################################
+
+# # 类别列表设置参见 https://github.com/fastlane/fastlane/blob/master/deliver/Reference.md
+# # 设置 App 的类别.这里可以设置一个主要类别,一个次要类别.
+
+# # 主要类别 
+# primary_category "xxx"
+
+# # 主要类别第一个子类别
+# primary_first_sub_category 
+
+# # 主要类别第二个子类别
+# primary_second_sub_category 
+
+# # 要设置的次要类别 无
+# secondary_category 
+
+# # 设置的次要第一个子类别 无
+# secondary_first_sub_category 
+
+# # 设置的次要第二个子类别 无
+# secondary_second_sub_category 
+
+
+# ################################## 关键字\描述等信息 ###################################
+
+
+# # 关键字
+# keywords(
+#   'zh-Hans' => "xxx,xxx,xxx"
+# )
+
+# # 营销地址
+# marketing_url({
+#   'zh-Hans' => "http://xxx.cn"
+# })
+
+# # 隐私地址
+# privacy_url({
+#   'zh-Hans' => "http://xxx.cn"
+# })
+
+# # 支持网址
+# support_url({
+#   'zh-Hans' => "http://xxx.cn"
+# })
+
+# # 发行说明,版本更新内容
+# release_notes({
+#   'zh-Hans' => ENV['release_notes']
+# })
+
+
+# ################################# 提交信息等 #########################################
+
+
+# # 1 提交审核信息:加密, idfa 等
+# submission_information({    
+#     export_compliance_encryption_updated: false,
+#     export_compliance_uses_encryption: false,
+#     content_rights_contains_third_party_content: false,
+#     add_id_info_uses_idfa: false
+# })
+
+# # 2 应用审核小组的联系信息 app 审核信息
+# app_review_information(
+#   first_name: "x",
+#   last_name: "x",
+#   phone_number: "+86xxx",
+#   email_address: "xxx@sina.com",
+#   demo_user: "xxx",
+#   demo_password: "xxx",
+#   notes: ""
+# )
+
+# # 出口合规证明文件
+# trade_representative_contact_information(
+#   first_name: "",
+#   last_name: "",
+#   address_line1: "xxx",
+#   address_line2: "",
+#   address_line3: "",
+#   city_name: "Beijing",
+#   state: "",
+#   country: "China",
+#   postal_code: "xxx",
+#   phone_number: "",
+#   email_address: "",
+#   trad_name: "xxx",
+#   is_displayed_on_app_store: false
+# )
+
+
+# ####################################### 其他信息 ###################################
+
+
+# # 1 App价格
+# price_tier 0
+
+# # 2 自动发布 app: false,则需要手动发布
+# automatic_release false
+
+# # 3 图标路径
+# app_icon './fastlane/metadata/app_icon.jpg'
+
+# 跳过HTML报告文件验证
+force true
+
+# 上传完成后提交以供审核
+submit_for_review false
+
+skip_metadata true
+skip_screenshots true
+skip_binary_upload true
