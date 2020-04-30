@@ -1,4 +1,4 @@
-import { Platform, Dimensions, StatusBar, PixelRatio } from 'react-native';
+import {Platform, Dimensions, StatusBar, PixelRatio} from 'react-native';
 
 export let screenW = Dimensions.get('window').width;
 export let screenH = Dimensions.get('window').height;
@@ -86,13 +86,13 @@ export function isIphoneX() {
   const X_HEIGHT = 812;
   const XSMAX_WIDTH = 414;
   const XSMAX_HEIGHT = 896;
-  const { height: D_HEIGHT, width: D_WIDTH } = Dimensions.get('window');
+  const {height: D_HEIGHT, width: D_WIDTH} = Dimensions.get('window');
   return (
     (Platform.OS === 'ios' &&
       ((D_HEIGHT === X_HEIGHT && D_WIDTH === X_WIDTH) ||
         (D_HEIGHT === X_WIDTH && D_WIDTH === X_HEIGHT))) ||
-    ((D_HEIGHT === XSMAX_HEIGHT && D_WIDTH === XSMAX_WIDTH) ||
-      (D_HEIGHT === XSMAX_WIDTH && D_WIDTH === XSMAX_HEIGHT))
+    (D_HEIGHT === XSMAX_HEIGHT && D_WIDTH === XSMAX_WIDTH) ||
+    (D_HEIGHT === XSMAX_WIDTH && D_WIDTH === XSMAX_HEIGHT)
   );
 }
 
@@ -115,7 +115,7 @@ export function getBottomSpace() {
 }
 
 export function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export function checkVersion(currentVersion, version) {

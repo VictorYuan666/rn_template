@@ -8,17 +8,17 @@ class Storage {
    */
 
   static get(key) {
-    return AsyncStorage.getItem(key).then(value => {
+    return AsyncStorage.getItem(key).then((value) => {
       const jsonValue = JSON.parse(value);
       return jsonValue;
     });
   }
 
   static multiGet(keysArray) {
-    return AsyncStorage.multiGet(keysArray).then(stores => {
+    return AsyncStorage.multiGet(keysArray).then((stores) => {
       const result = {};
 
-      stores.forEach(item => {
+      stores.forEach((item) => {
         const key = item[0];
         result[key] = JSON.parse(item[1] || null);
       });
@@ -34,9 +34,9 @@ class Storage {
 
   static getAll() {
     return AsyncStorage.getAllKeys().then(
-      value =>
+      (value) =>
         // const jsonValue = JSON.parse(value);
-        value
+        value,
     );
   }
 
@@ -57,8 +57,9 @@ class Storage {
    * @returns {Promise<T>|Promise.<TResult>}
    */
   static update(key, value) {
-    return AsyncStorage.get(key).then(item => {
-      const valueTemp = typeof value === 'string' ? value : Object.assign({}, item, value);
+    return AsyncStorage.get(key).then((item) => {
+      const valueTemp =
+        typeof value === 'string' ? value : Object.assign({}, item, value);
       return AsyncStorage.setItem(key, JSON.stringify(valueTemp));
     });
   }

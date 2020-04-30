@@ -23,3 +23,9 @@
 ## 其他
 
 代码提交规范参见 https://juejin.im/post/5c85bdde5188257dfa07da6b
+
+## 常见问题
+
+### husky 的钩子无法执行无法进行提交检查
+
+确认自己的 git 版本 Git >= 2.13.2，小于该版本使用 brew upgrade git 升级即可

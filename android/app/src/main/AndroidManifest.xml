@@ -1,18 +1,20 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+ xmlns:tools="http://schemas.android.com/tools"
   package="com.rn_template">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
       android:name=".MainApplication"
-      android:label="@string/app_name"
+      android:label="@string/APP_NAME"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      tools:replace="android:label">
       <activity
         android:name=".MainActivity"
-        android:label="@string/app_name"
+        android:label="@string/APP_NAME"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
         android:launchMode="singleTask"
         android:windowSoftInputMode="adjustResize">

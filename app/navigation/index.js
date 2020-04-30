@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Appearance} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import Icon from 'react-native-vector-icons/AntDesign';
+import {Icon} from '@ant-design/react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -14,8 +14,6 @@ import {Splash} from '@pages/guide';
 import {Login} from '@pages/auth';
 import {Home, Detail} from '@pages/home';
 import {Mine} from '@pages/mine';
-
-Icon.loadFont();
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

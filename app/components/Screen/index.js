@@ -8,13 +8,9 @@ import {useNavigation} from '@react-navigation/native';
 Screen.propTypes = {};
 
 function Screen({children}) {
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{}}>
-        {children}
-        <Text onPress={() => navigation.push('Detail')}>123</Text>
-      </ScrollView>
+      <ScrollView style={{}}>{children}</ScrollView>
     </SafeAreaView>
   );
 }

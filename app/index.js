@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {Provider as AProvider} from '@ant-design/react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {PersistGate} from 'redux-persist/es/integration/react';
@@ -12,7 +13,9 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
-          <Navigation />
+          <AProvider>
+            <Navigation />
+          </AProvider>
         </SafeAreaProvider>
       </PersistGate>
     </Provider>

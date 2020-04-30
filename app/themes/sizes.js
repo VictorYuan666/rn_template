@@ -1,7 +1,7 @@
-import { Dimensions, StatusBar, StyleSheet, Platform } from 'react-native';
-import { ifAndroid, ifIphoneX } from '../utils';
+import {Dimensions, StatusBar, StyleSheet, Platform} from 'react-native';
+import {ifAndroid, ifIphoneX} from '../utils';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const screenHeight = width;
 const screenWidth = height;
 
@@ -17,7 +17,7 @@ const sizes = {
   $hairLineWidth: StyleSheet.hairlineWidth,
   $statusBarHeight: ifAndroid(
     Platform.Version < 21 ? 0 : StatusBar.currentHeight,
-    ifIphoneX(44, 24)
+    ifIphoneX(44, 24),
   ),
   $navBarHeight: 44,
   $taBarHeight: 49,
