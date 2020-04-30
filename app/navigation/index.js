@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Appearance} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/AntDesign';
-import AsyncStorage from '@react-native-community/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -91,11 +90,10 @@ const MODAL_SCREENS = {
 
 function MainNav() {
   const [loading, setLoading] = useState(true);
-  const {showSplash, token} = useSelector((state) => state.app);
+  const {token} = useSelector((state) => state.app);
 
   const SCREEN = token ? MAIN_SCREENS : AUTH_SCREENS;
   useEffect(() => {
-    console.log(showSplash, token);
     setLoading(false);
   }, []);
   return (
@@ -161,7 +159,7 @@ function Navigation(props) {
     const subscription = Appearance.addChangeListener(({colorScheme}) => {
       console.log(colorScheme, 'colorScheme');
       dispatch.app.update({
-        dark: colorScheme == 'dark',
+        dark: colorScheme === 'dark',
       });
     });
 
