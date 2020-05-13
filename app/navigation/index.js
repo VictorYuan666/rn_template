@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Appearance} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 import {useSelector, useDispatch} from 'react-redux';
 import {Icon} from '@ant-design/react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,6 +10,7 @@ import {
   CardStyleInterpolators,
 } from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 import themes from '@themes';
 import {Splash} from '@pages/guide';
 import {Login} from '@pages/auth';
@@ -93,6 +95,7 @@ function MainNav() {
   const SCREEN = token ? MAIN_SCREENS : AUTH_SCREENS;
   useEffect(() => {
     setLoading(false);
+    SplashScreen.hide();
   }, []);
   return (
     <Stack.Navigator

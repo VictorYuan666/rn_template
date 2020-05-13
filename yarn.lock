@@ -7202,6 +7202,13 @@ react-native@0.62.2:
     use-subscription "^1.0.0"
     whatwg-fetch "^3.0.0"
 
+react-navigation-collapsible@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.npm.taobao.org/react-navigation-collapsible/download/react-navigation-collapsible-5.5.0.tgz#cd7f3bf5163c83502c4f4536f0a3f266ed8a4bea"
+  integrity sha1-zX879RY8g1AsT0U28KPyZu2KS+o=
+  dependencies:
+    react-native-iphone-x-helper "^1.2.1"
+
 react-navigation-header-buttons@^3.0.5:
   version "3.0.5"
   resolved "https://registry.npmjs.org/react-navigation-header-buttons/-/react-navigation-header-buttons-3.0.5.tgz#5b8c0fc32bc59382f02015e4b2f19a135b99dca4"
