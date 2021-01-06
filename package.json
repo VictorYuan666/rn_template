@@ -33,7 +33,7 @@
     "@rematch/persist": "^1.1.6",
     "@rematch/select": "^2.0.5",
     "@rematch/updated": "^0.1.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.26",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
