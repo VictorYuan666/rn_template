@@ -35,7 +35,7 @@
     "@rematch/updated": "^0.1.5",
     "axios": "^0.19.2",
     "dayjs": "^1.8.26",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-hook-form": "^5.7.2",
